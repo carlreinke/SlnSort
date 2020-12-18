@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net48;net5.0</TargetFrameworks>
+    
+    <LangVersion>8</LangVersion>
+    <Nullable>enable</Nullable>
+    <Features>strict</Features>
+
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+  </PropertyGroup>
+
+</Project>
