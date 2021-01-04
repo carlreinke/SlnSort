@@ -9,6 +9,23 @@
     <Features>strict</Features>
 
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+
+    <PackAsTool>true</PackAsTool>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/carlreinke/SlnSort</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/carlreinke/SlnSort</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>sln;sort;solution</PackageTags>
+    
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>$(FileVersion)</InformationalVersion>
+
+    <Authors>Carl Reinke</Authors>
+    <Description>Sorts the projects in a Visual Studio Solution file.</Description>
+    <Copyright>2021 Carl Reinke</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 
 </Project>
