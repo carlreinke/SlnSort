@@ -1,0 +1,24 @@
+version: 1.0.0.{build}
+pull_requests:
+  do_not_increment_build_number: true
+image: Visual Studio 2019
+configuration:
+- Debug
+- Release
+platform: Any CPU
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  assembly_version: 1.0.0.0
+  file_version: '{version}'
+  informational_version: '{version}+$(APPVEYOR_REPO_COMMIT)'
+build:
+  parallel: true
+  verbosity: minimal
+before_build:
+- pwsh: dotnet restore -v quiet
+after_build:
+- pwsh: dotnet pack -c "${env:CONFIGURATION}" -p:TargetFrameworks=net5.0
+artifacts:
+- path: '**\*.nupkg'
+  name: NuGet package
