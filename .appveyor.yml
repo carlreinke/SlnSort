@@ -1,24 +1,19 @@
-version: 1.0.0.{build}
+version: '{build}'
 pull_requests:
   do_not_increment_build_number: true
-image: Visual Studio 2019
+image: Visual Studio 2022
 configuration:
 - Debug
 - Release
 platform: Any CPU
-dotnet_csproj:
-  patch: true
-  file: '**\*.csproj'
-  assembly_version: 1.0.0.0
-  file_version: '{version}'
-  informational_version: '{version}+$(APPVEYOR_REPO_COMMIT)'
 build:
   parallel: true
   verbosity: minimal
 before_build:
+- pwsh: 'Get-ChildItem -Recurse -Include *.csproj | % { [xml]$xml = Get-Content $_; $xml.SelectNodes("/Project/PropertyGroup/FileVersion") | % { $_."#text" += ".${Env:APPVEYOR_BUILD_NUMBER}" }; $xml.SelectNodes("/Project/PropertyGroup/InformationalVersion") | % { $_."#text" += "+${Env:APPVEYOR_REPO_COMMIT}" }; $xml.Save($_) }'
 - pwsh: dotnet restore -v quiet
 after_build:
-- pwsh: dotnet pack -c "${env:CONFIGURATION}" -p:TargetFrameworks=net5.0
+- pwsh: dotnet pack -c "${env:CONFIGURATION}" -p:TargetFrameworks=net6.0
 artifacts:
 - path: '**\*.nupkg'
   name: NuGet package

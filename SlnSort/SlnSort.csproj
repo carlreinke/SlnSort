@@ -2,29 +2,33 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net48;net5.0</TargetFrameworks>
+    <TargetFrameworks>net48;net6.0</TargetFrameworks>
     
     <LangVersion>8</LangVersion>
     <Nullable>enable</Nullable>
     <Features>strict</Features>
 
-    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <AnalysisMode>Recommended</AnalysisMode>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+
+    <VersionPrefix>1.0.1</VersionPrefix>
+    <VersionSuffix>preview</VersionSuffix>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>$(VersionPrefix)</FileVersion>
+    <InformationalVersion>$(VersionPrefix)</InformationalVersion>
+    <InformationalVersion Condition="'$(VersionSuffix)' != ''">$(VersionPrefix)-$(VersionSuffix)</InformationalVersion>
 
     <PackAsTool>true</PackAsTool>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/carlreinke/SlnSort</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/carlreinke/SlnSort</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>sln;sort;solution</PackageTags>
     
-    <Version>1.0.0</Version>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-    <InformationalVersion>$(FileVersion)</InformationalVersion>
-
     <Authors>Carl Reinke</Authors>
     <Description>Sorts the projects in a Visual Studio Solution file.</Description>
     <Copyright>2021 Carl Reinke</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/Tetractic/SlnSort</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Tetractic/SlnSort</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>sln;sort;solution</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 
