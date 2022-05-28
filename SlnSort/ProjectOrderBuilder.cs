@@ -63,7 +63,7 @@ namespace SlnSort
                     if (result != 0)
                         return -result;
 
-                    result = xSegment.Name.CompareTo(ySegment.Name);
+                    result = string.CompareOrdinal(xSegment.Name, ySegment.Name);
                     if (result != 0)
                         return result;
                 }
