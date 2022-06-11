@@ -128,13 +128,15 @@ namespace SlnSort
                 _order = order;
             }
 
+#pragma warning disable CA1704 // Identifiers should be spelled correctly
             public int Compare(string? x, string? y)
+#pragma warning restore CA1704 // Identifiers should be spelled correctly
             {
                 Debug.Assert(x != null);
                 Debug.Assert(y != null);
 
-                bool xFound = _order.TryGetValue(x, out int xOrder);
-                bool yFound = _order.TryGetValue(y, out int yOrder);
+                bool xFound = _order.TryGetValue(x!, out int xOrder);
+                bool yFound = _order.TryGetValue(y!, out int yOrder);
 
                 return xFound != yFound
                     ? -xFound.CompareTo(yFound)
